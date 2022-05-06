@@ -1,0 +1,47 @@
+//-Common----------------
+$WHITE: #ffffff;
+$BLACK: #000000;
+$HEAD-HEIGHT: 168px;
+
+
+//-Blue----------------
+$blue-lightest: #E6F7FF;
+$blue-lighter: #CCEEFF;
+$blue-light: #66C7FF;
+$blue: #009FFF;
+$blue-dark: #0062B3;
+
+//-Gray----------------
+$gray-lightest: #F6F7F9;
+$gray-lighter: #F0F2F5;
+$gray-light: #DDDDE3;
+$gray: #D5D4DC;
+$gray-dark: #ACB4C1;
+$gray-darker: #54627B;
+$gray-darkest: #293750;
+
+//-Assist Colors--------------- 辅助色
+$assist-danger-lightest: #FFADB3;
+$assist-danger-lighter: #FF8691;
+$assist-danger-light: #FF5362;
+$assist-danger: #FF3143;
+$assist-success: #2DC76D;
+$assist-warning-lighter: #FFF9E3;
+$assist-warning-light: #FFD94C;
+$assist-warning: #FFC900;
+$assist-warning-dark: #FD8701;
+
+//-Font Colors---------------- 文字颜色
+$font-primary-lighter: $gray-dark;
+$font-primary-light: $gray-darker;
+$font-primary: $gray-darkest;
+$font-primary-dark: $BLACK;
+$font-success: $assist-success;
+$font-warning: $assist-warning-dark;
+$font-danger: $assist-danger;
+
+//-Border And Background Colors---------------- 边框和背景颜色
+$color-background-light: $gray-lightest;
+$color-background: $gray-lighter;
+$color-border-light: $gray-light;
+$color-border: $gray;

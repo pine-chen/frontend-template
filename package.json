@@ -1,0 +1,37 @@
+{
+  "name": "frontend-template",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite serve --mode development",
+    "prod": "vite serve --mode production",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@vue/runtime-core": "^3.2.33",
+    "axios": "^0.27.2",
+    "element-plus": "^2.1.11",
+    "normalize.css": "^8.0.1",
+    "pinia": "^2.0.13",
+    "vue": "^3.2.25",
+    "vue-router": "4"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.29",
+    "@typescript-eslint/eslint-plugin": "^5.21.0",
+    "@typescript-eslint/parser": "^5.21.0",
+    "@vitejs/plugin-vue": "^2.3.1",
+    "eslint": "^8.14.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-vue": "^8.7.1",
+    "sass": "^1.51.0",
+    "typescript": "^4.5.4",
+    "unplugin-vue-components": "^0.19.3",
+    "vite": "^2.9.5",
+    "vue-tsc": "^0.34.7",
+    "husky": "^7.0.0"
+  }
+}
