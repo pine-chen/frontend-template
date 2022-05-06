@@ -1,8 +1,5 @@
 <template>
-  <div class="flex">
-    <div class="name">{{store.name}}</div>
-    <el-button @click="getList()">test</el-button>
-  </div>
+  <div class="name">{{store.name}}</div>
 </template>
 
 <script lang="ts">
@@ -19,9 +16,10 @@ export default defineComponent({
     const arr1 = [1, 2, 3];
     const arr = arr1.sort((a, b) => a - b).some((item) => item === 2);
     const getList = () => {
-      user.getUser({}).then((res) => {
-        //
-      });
+      user.getUser({})
+        .then((res) => {
+          //
+        });
     };
     return {
       store,
@@ -33,12 +31,4 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.flex{
-  width: 400px;
-  height: 400px;
-  @extend .flexCenter;
-  .name{
-    color: $blue;
-  }
-}
 </style>
