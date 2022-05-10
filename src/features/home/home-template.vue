@@ -1,5 +1,8 @@
 <template>
-  <div class="name">{{store.name}}</div>
+  <div>
+    <div class="name">{{store.name}}</div>
+    <common-test></common-test>
+  </div>
 </template>
 
 <script setup lang="ts">
