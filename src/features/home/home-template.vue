@@ -5,7 +5,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { userStore } from '@/store';
 import { IUser } from '@/features/home/home-template.dto';
 import { user } from '@/service/api';
