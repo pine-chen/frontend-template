@@ -1,7 +1,7 @@
 import { AxiosRequestConfig } from 'axios';
 
 declare module 'axios' {
-  export interface AxiosInstance {
+  export interface AxiosInstance{
     /* eslint-disable no-unused-vars */
     <T = any>(config: AxiosRequestConfig): Promise<T>;
     request<T = any>(config: AxiosRequestConfig): Promise<T>;

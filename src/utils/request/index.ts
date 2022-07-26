@@ -1,9 +1,9 @@
 import { ref } from 'vue';
-import axios, { AxiosResponse, AxiosRequestConfig } from 'axios';
-import { errorHandler } from '@/service/request/types';
+import axios, { AxiosResponse, AxiosRequestConfig, AxiosInstance } from 'axios';
+import { errorHandler } from '@/utils/request/types';
 import { userStore } from '@/store';
 
-export const request = axios.create({
+export const request: AxiosInstance = axios.create({
   // API 请求的默认前缀
   baseURL: import.meta.env.BASE_URL,
   timeout: 10 * 1000, // 请求超时时间
