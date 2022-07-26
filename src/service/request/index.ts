@@ -5,11 +5,13 @@ import { userStore } from '@/store';
 
 export const request = axios.create({
   // API 请求的默认前缀
-  baseURL: 'api',
-  timeout: 10 * 1000 // 请求超时时间
+  baseURL: import.meta.env.BASE_URL,
+  timeout: 10 * 1000, // 请求超时时间
+  withCredentials: true
 });
 
-request.interceptors.request.use((config) => {
+// request interceptor
+request.interceptors.request.use((config:AxiosRequestConfig) => {
   // 如果 token 存在
   // 让每个请求携带自定义 token 请根据实际情况自行修改
   if (config.headers) {
@@ -42,8 +44,6 @@ request.interceptors.response.use((response: AxiosResponse) => {
       return '不是正确的code';
   }
 }, errorHandler);
-
-export default { request };
 
 export interface RequestConfig {
   successMessage?: string;
