@@ -14,7 +14,9 @@ export default (({ mode }) => {
       Components({
         dirs: ['src/shared'], // 配置需要默认导入的自定义组件文件夹，该文件夹下的所有组件都会自动 import
         deep: true,
-        resolvers: [ElementPlusResolver()], // ui库解析器
+        resolvers: [
+          ElementPlusResolver()
+        ], // ui库解析器
         dts: 'src/shared/components.d.ts'
       })
     ],
