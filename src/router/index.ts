@@ -4,7 +4,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Layout',
-    component: () => import('@/shared/layout/index.vue')
+    component: () => import('@/shared/layout/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'Home',
+        component: () => import('@/feature/home/home-template.vue')
+      }
+    ]
   }
 ];
 

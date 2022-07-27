@@ -1,37 +1,38 @@
 <template>
   <el-container>
-    <el-menu
-        default-active="2"
-        background-color="#0062B3"
-        text-color="#fff"
-        active-text-color="#FD8701"
-        :collapse="isCollapse"
-        @open="handleOpen"
-        @close="handleClose"
-    >
-      <div class="system-name">
-        <img src="@/assets/svgs/system_logo.svg" alt="">
-      </div>
-      <div class="collapse-btn">
-        <el-button size="small" :icon="isCollapse ? Expand : Fold" @click="changeCollapse" />
-      </div>
-      <el-sub-menu v-for="(item, key) in menuData" :key="key" :index="item.value">
-        <template #title>
-          <span>{{ item.name }}</span>
-        </template>
-        <el-menu-item index="1-1">item one</el-menu-item>
-        <el-menu-item index="1-2">item two</el-menu-item>
-      </el-sub-menu>
-    </el-menu>
-    <el-main></el-main>
+    <el-aside width="200px">
+      <el-menu
+          default-active="2"
+          background-color="#293750"
+          text-color="#fff"
+          active-text-color="#FD8701"
+          :collapse="isCollapse"
+          @open="handleOpen"
+          @close="handleClose"
+      >
+        <div class="system-name">
+          <img src="@/assets/svgs/system_logo.svg" alt="">
+        </div>
+        <!--      <div class="collapse-btn">-->
+        <!--        <el-button size="small" :icon="isCollapse ? Expand : Fold" @click="changeCollapse" />-->
+        <!--      </div>-->
+        <el-sub-menu v-for="(item, key) in menuData" :key="key" :index="item.value">
+          <template #title>
+<!--            <img :src="item.icon" alt="" style="width: 25px; margin-right: 8px">-->
+            <span>{{ item.name }}</span>
+          </template>
+          <el-menu-item :index="item.value">{{ item.children }}</el-menu-item>
+        </el-sub-menu>
+      </el-menu>
+    </el-aside>
+    <el-main>
+      <router-view></router-view>
+    </el-main>
   </el-container>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import {
-  Expand, Fold
-} from '@element-plus/icons-vue';
 
 const isCollapse = ref(false);
 
@@ -39,12 +40,28 @@ const menuData = ref([
   {
     name: 'Navigator Home',
     value: 'home',
-    icon: 'location'
+    icon: '@/assets/svgs/icon_home.svg',
+    children: [
+      {
+        name: 'Item Home1',
+        value: 'home1'
+      },
+      {
+        name: 'Item Home2',
+        value: 'home2'
+      }
+    ]
   },
   {
     name: 'Navigator About',
     value: 'about',
-    icon: 'icon-menu'
+    icon: '@/assets/svgs/icon_about.svg',
+    children: [
+      {
+        name: 'Item About',
+        value: 'about'
+      }
+    ]
   }
 ]);
 
@@ -61,8 +78,11 @@ const handleClose = (key: string, keyPath: string[]) => {
 </script>
 
 <style lang="scss" scoped>
-.el-menu{
-  background: $blue-dark;
+.el-aside{
+  background: $gray-darkest;
+  .el-menu{
+    border-right: $gray-darkest;
+  }
   .system-name{
     @extend .flexCenter;
     img{
