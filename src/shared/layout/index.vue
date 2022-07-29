@@ -33,7 +33,9 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 const isCollapse = ref(false);
 
 const menuData = ref([
@@ -65,6 +67,7 @@ const menuData = ref([
   }
 ]);
 
+// console.log('3123123', router.options.routes);
 const changeCollapse = () => {
   isCollapse.value = !isCollapse.value;
 };
