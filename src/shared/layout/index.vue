@@ -6,6 +6,7 @@
           text-color="#fff"
           active-text-color="#FD8701"
           :collapse="isCollapse"
+          router
       >
         <div class="system-name">
           <img src="@/assets/svgs/system_logo.svg" alt="">
@@ -21,7 +22,7 @@
           <el-menu-item
               v-for="(childItem, childKey) in item.children"
               :key="childKey"
-              :index="childItem.path">
+              :index="resolvePath(item.path, childItem.path)">
             {{ childItem.meta.title }}
           </el-menu-item>
         </el-sub-menu>
@@ -36,6 +37,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
+import { isExternal } from '@/utils/validate';
 
 const router = useRouter();
 const isCollapse = ref(false);
@@ -46,6 +48,15 @@ const menuData = router.options.routes[0].children;
 
 const changeCollapse = () => {
   isCollapse.value = !isCollapse.value;
+};
+const resolvePath = (basePath:string, routePath:string) => {
+  if (isExternal(routePath)) {
+    return routePath;
+  }
+  if (isExternal(basePath)) {
+    return basePath;
+  }
+  return `/${basePath}/${routePath}`;
 };
 
 </script>

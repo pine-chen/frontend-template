@@ -17,7 +17,7 @@ export default [
           key: 'PAGE3',
           requireAuth: true
         },
-        component: () => import('@/feature/home/home-template.vue')
+        component: () => import('@/feature/about/about-template.vue')
       },
       {
         path: 'page4',
@@ -27,7 +27,7 @@ export default [
           key: 'PAGE4',
           requireAuth: true
         },
-        component: () => import('@/feature/home/home-template.vue')
+        component: () => import('@/feature/about/about-template.vue')
       }
     ]
   }
