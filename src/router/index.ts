@@ -1,4 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import common from '@/router/common';
+import home from '@/router/home';
+import about from '@/router/about';
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -6,34 +9,11 @@ const routes: Array<RouteRecordRaw> = [
     name: 'Layout',
     component: () => import('@/shared/layout/index.vue'),
     children: [
-      {
-        path: 'home',
-        name: 'Home',
-        meta: {
-          title: 'Home',
-          key: 'HOME',
-          requireAuth: true
-        },
-        component: () => import('@/feature/home/home-template.vue')
-      },
-      {
-        path: 'about',
-        name: 'about',
-        meta: {
-          title: 'About',
-          key: 'ABOUT',
-          requireAuth: true
-        },
-        component: () => import('@/feature/about/about-template.vue')
-      }
+      ...home,
+      ...about
     ]
   },
-  {
-    path: '/404',
-    name: 'NoFound',
-    component: () => import('@/shared/components/no-found.vue')
-  },
-  { path: '/:catchAll(.*)', redirect: '/404' }
+  ...common
 ];
 
 const route = createRouter({
