@@ -8,7 +8,7 @@
 <script setup lang="ts">
 import { userStore } from '@/store';
 import { IUser } from '@/feature/home/home-template.dto';
-import { User } from '@/service/base';
+import { User } from '@/service/user';
 
 const store:IUser = userStore();
 const arr1 = [1, 2, 3];
