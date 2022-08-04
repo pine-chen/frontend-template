@@ -11,12 +11,8 @@
         <div class="system-name">
           <img src="@/assets/svgs/system_logo.svg" alt="">
         </div>
-        <!--      <div class="collapse-btn">-->
-        <!--        <el-button size="small" :icon="isCollapse ? Expand : Fold" @click="changeCollapse" />-->
-        <!--      </div>-->
         <el-sub-menu v-for="(item, key) in menuData" :key="key" :index="item.path">
           <template #title>
-<!--            <img :src="item.icon" alt="" style="width: 25px; margin-right: 8px">-->
             <span>{{ item.meta.title }}</span>
           </template>
           <el-menu-item
@@ -35,19 +31,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { isExternal } from '@/utils/validate';
+import { IMenuPathFun } from '@/shared/layout/index';
 
 const router = useRouter();
-const isCollapse = ref(false);
 
 const menuData = router.options.routes[0].children;
 
-const changeCollapse = () => {
-  isCollapse.value = !isCollapse.value;
-};
-const resolvePath = (basePath:string, routePath:string) => {
+const resolvePath:IMenuPathFun = (basePath:string, routePath:string) => {
   if (isExternal(routePath)) {
     return routePath;
   }
