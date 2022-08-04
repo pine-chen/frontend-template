@@ -5,7 +5,6 @@
           background-color="#293750"
           text-color="#fff"
           active-text-color="#FD8701"
-          :collapse="isCollapse"
           router
       >
         <div class="system-name">
