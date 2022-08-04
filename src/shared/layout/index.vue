@@ -35,14 +35,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import { isExternal } from '@/utils/validate';
 
 const router = useRouter();
 const isCollapse = ref(false);
-
-const menus = computed(() => []);
 
 const menuData = router.options.routes[0].children;
 
